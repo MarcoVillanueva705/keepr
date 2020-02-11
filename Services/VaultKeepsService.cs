@@ -24,16 +24,16 @@ namespace Keepr.Services
             return newVaultKeep;
         }
 
-        internal VaultKeep GetVaultKeepById(int id, string userId)
+        internal IEnumerable <VaultKeep> GetVaultKeepById(int id, string userId)
         {
             var exists = _repo.GetVaultKeepById(id, userId);
             if (exists == null) { throw new Exception("Invalid Id"); }
             return exists;   
         }
 
-        internal string Delete(int id, string userId)
+        internal string Delete(int id, int vaultId, string userId)
         {
-            var exists = _repo.GetVaultKeepDeleteById(id, userId);
+            var exists = _repo.GetVaultKeepDeleteById(id, vaultId, userId);
             if (exists == null) { throw new Exception("Invalid Id"); }
             _repo.Delete(id, userId);
             return "Successfully Deleted";        }

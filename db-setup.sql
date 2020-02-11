@@ -23,27 +23,37 @@ USE keepr20;
 --     PRIMARY KEY (id)
 -- );
 
-CREATE TABLE vaultkeeps (
-    id int NOT NULL AUTO_INCREMENT,
-    vaultId int NOT NULL,
-    keepId int NOT NULL,
-    userId VARCHAR(255) NOT NULL,
+-- CREATE TABLE vaultkeeps (
+--     id int NOT NULL AUTO_INCREMENT,
+--     vaultId int NOT NULL,
+--     keepId int NOT NULL,
+--     userId VARCHAR(255) NOT NULL,
 
-    PRIMARY KEY (id),
-    INDEX (vaultId, keepId),
-    INDEX (userId),
+--     PRIMARY KEY (id),
+--     INDEX (vaultId, keepId),
+--     INDEX (userId),
 
-    FOREIGN KEY (vaultId)
-        REFERENCES vaults(id)
-        ON DELETE CASCADE,
+--     FOREIGN KEY (vaultId)
+--         REFERENCES vaults(id)
+--         ON DELETE CASCADE,
 
-    FOREIGN KEY (keepId)
-        REFERENCES keeps(id)
-        ON DELETE CASCADE
-)
+--     FOREIGN KEY (keepId)
+--         REFERENCES keeps(id)
+--         ON DELETE CASCADE
+-- )
+
+-- INSERT INTO vaults (name, description) VALUES ("testVault", "this is a test");
+-- SELECT * FROM vaults
+
+-- INSERT INTO keeps (name, description, img, isPrivate, views, shares, keeps) VALUES ("testKeep", "this is a keep test", "image test", 22, 1, 2, 3);
+-- SELECT * FROM keeps
+
+-- INSERT INTO vaultkeeps (vaultId, keepId) VALUES (14,14);
+-- SELECT * FROM vaultkeeps;
 
 
--- -- USE THIS LINE FOR GET KEEPS BY VAULTID
+
+-- USE THIS LINE FOR GET KEEPS BY VAULTID
 -- SELECT k.* FROM vaultkeeps vk
 -- INNER JOIN keeps k ON k.id = vk.keepId 
 -- WHERE (vaultId = @vaultId AND vk.userId = @userId) 

@@ -35,6 +35,7 @@ namespace Keepr.Controllers
                 return BadRequest(e.Message);
             };
         }
+
         [HttpPost]
         public ActionResult<Vault> Post([FromBody] Vault newVault)
         {

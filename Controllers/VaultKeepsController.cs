@@ -35,12 +35,14 @@ namespace Keepr.Controllers
                 return BadRequest(e.Message);
             };
         }
+
         [HttpPost]
         public ActionResult<VaultKeep> Post([FromBody] VaultKeep newVaultKeep)
         {
             try
             {
                 var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                //keepId?
                 newVaultKeep.UserId = userId;
                 return Ok(_vks.Create(newVaultKeep));
             }
@@ -50,7 +52,7 @@ namespace Keepr.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}/keeps")]
         public ActionResult<VaultKeep> GetVaultKeepById(int id)
         {
             try
@@ -64,13 +66,13 @@ namespace Keepr.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
-         public ActionResult<String> Delete(int id)
+        [HttpDelete("{id}/keeps/{vaultId}")]
+         public ActionResult<String> Delete(int id, int vaultId)
         {
             try
             {
                 var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-                return Ok(_vks.Delete(id, userId));
+                return Ok(_vks.Delete(id, vaultId, userId));
             }
             catch (Exception e)
             {
