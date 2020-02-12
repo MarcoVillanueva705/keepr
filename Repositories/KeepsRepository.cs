@@ -54,6 +54,11 @@ namespace Keepr.Repositories
             return _db.QueryFirstOrDefault<Keep>(sql, new { id });       
         }
 
+        internal IEnumerable<Keep> GetByUserId()
+        {
+            throw new NotImplementedException();
+        }
+
         internal Keep GetKeepDeleteById(int id, string userId)
         {
             string sql = "SELECT * FROM keeps WHERE id = @Id AND userId = @UserId";

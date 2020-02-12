@@ -46,7 +46,7 @@ USE keepr20;
 -- SELECT * FROM vaults
 
 -- INSERT INTO keeps (name, description, img, isPrivate, views, shares, keeps) VALUES ("testKeep", "this is a keep test", "image test", 22, 1, 2, 3);
--- SELECT * FROM keeps
+SELECT * FROM keeps
 
 -- INSERT INTO vaultkeeps (vaultId, keepId) VALUES (14,14);
 -- SELECT * FROM vaultkeeps;

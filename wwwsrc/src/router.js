@@ -20,6 +20,12 @@ export default new Router({
       name: "dashboard",
       component: Dashboard,
       beforeEnter: authGuard
+    },
+    {
+      path: "/dashboard",
+      name: "dashboard",
+      component: Dashboard,
+      beforeEnter: authGuard
     }
   ]
 });
