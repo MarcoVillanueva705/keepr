@@ -22,6 +22,9 @@ export default new Vuex.Store({
     setAllKeeps(state, data) {
       state.publicKeeps = data;
     },
+    setUserKeeps(state, data) {
+      state.userKeeps = data;
+    },
     createKeep(state, keep) {
       state.publicKeeps.push(keep);
     },
@@ -33,10 +36,17 @@ export default new Vuex.Store({
     resetBearer() {
       api.defaults.headers.authorization = "";
     },
+
     async getKeeps({ commit, dispatch }) {
     let res = await api.get('keeps');
     commit("setAllKeeps", res.data);
     },
+
+    async getUserKeeps({commit, dispatch}) {
+    let res = await api.get('keeps/user');
+    commit("setUserKeeps", res.data);
+    },
+
     async createKeep({ commit, dispatch }, keep) {
     let res = await api.post('keeps', keep);
     commit("createKeep", res.data);

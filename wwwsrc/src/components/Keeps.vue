@@ -14,7 +14,7 @@
           </div>
 
           <div class="col-2">
-          <p>{{ keepData.isPrivate }}</p>
+          <p>{{ keepData.isPrivate}}</p>
           </div>
 
         </div>

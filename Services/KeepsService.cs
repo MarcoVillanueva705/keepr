@@ -50,7 +50,7 @@ namespace Keepr.Services
 
         public IEnumerable <Keep> GetByUserId(string userId)
         {
-            return _repo.GetByUserId();
+            return _repo.GetByUserId(userId);
         }
     }
 }
